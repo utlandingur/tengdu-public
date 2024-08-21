@@ -1,0 +1,287 @@
+// Mock the 'firebase/auth' module
+let mockUser = null;
+jest.mock("firebase/auth", () => ({
+  ...jest.requireActual("firebase/auth"), // This line is needed to keep the other exports of 'firebase/auth' intact
+  sendPasswordResetEmail: jest.fn().mockImplementation((auth, email) => {
+    return Promise.resolve({ success: true });
+  }),
+  signInWithRedirect: jest.fn().mockImplementation((auth, provider) => {
+    return Promise.resolve({ success: true });
+  }),
+  getRedirectResult: jest.fn().mockImplementation((auth) => {
+    return Promise.resolve({
+      user: { uid: "testUid", email: "test@example.com" }
+    });
+  }),
+  signInWithEmailAndPassword: jest
+    .fn()
+    .mockImplementation((auth, email, password) => {
+      return Promise.resolve({ uid: "testUid", email: email });
+    }),
+  signOut: jest.fn().mockImplementation(() => {
+    return Promise.resolve({ success: true });
+  }),
+  createUserWithEmailAndPassword: jest
+    .fn()
+    .mockImplementation((auth, email, password) => {
+      return Promise.resolve({ user: { uid: "testUid", email: email } });
+    }),
+  onAuthStateChanged: jest.fn((auth, callback) => {
+    callback = callback || (() => {});
+    callback(mockUser);
+    return jest.fn();
+  }),
+  __setMockUser: (user) => {
+    mockUser = user;
+  }
+}));
+
+// Then import the mocked function
+import {
+  __setMockUser,
+  createUserWithEmailAndPassword,
+  getRedirectResult,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signInWithRedirect,
+  signOut
+} from "firebase/auth";
+
+jest.mock("../../providers/AuthProvider", () => {
+  const originalModule = jest.requireActual("../../providers/AuthProvider");
+
+  return {
+    ...originalModule,
+    useSession: jest.fn(() => ({
+      ...originalModule.useSession(), // Include the original useSession functions
+      loading: false,
+      error: null
+    }))
+  };
+});
+
+import { ReactNode, ReactPortal, useEffect } from "react";
+import React from "react";
+import ReactDOM from "react-dom";
+import { View } from "react-native-web";
+import { Text } from "react-native-web";
+import { render, waitFor } from "@testing-library/react";
+
+import { SessionProvider, useSession } from "../../providers/AuthProvider";
+import { renderReact, renderWithAuthReact } from "../../render";
+
+function TestComponent() {
+  return (
+    <View testID="text111">
+      <Text>Test</Text>
+    </View>
+  );
+}
+describe("SessionProvider", () => {
+  const oldCreatePortal = ReactDOM.createPortal;
+  beforeAll(() => {
+    ReactDOM.createPortal = (node: ReactNode): ReactPortal =>
+      node as ReactPortal;
+  });
+
+  afterAll(() => {
+    ReactDOM.createPortal = oldCreatePortal;
+  });
+  describe("useSession", () => {
+    it("does not throw error when used within SessionProvider", async () => {
+      // Render TestComponent within SessionProvider
+      waitFor(() =>
+        expect(() => renderWithAuthReact(<TestComponent />, {})).not.toThrow()
+      );
+    });
+
+    it("updates user state when authentication state changes", async () => {
+      const userDetails = {
+        uid: "testUid",
+        displayName: "",
+        photoURL: "",
+        email: "test@example.com"
+      };
+      await (__setMockUser as any)(userDetails);
+
+      let testUser;
+      // user state change happens asynchronously so we need to wait for that to happen
+      // and then re-render
+      function TestComponent() {
+        const { user } = useSession();
+        useEffect(() => {
+          testUser = user;
+        }, [user]);
+
+        return null;
+      }
+
+      await waitFor(() => {
+        renderWithAuthReact(<TestComponent />, {});
+      });
+
+      await waitFor(() => {
+        expect(testUser).toEqual(userDetails);
+      });
+      // reset
+      (__setMockUser as any)(null);
+    });
+
+    describe("resetPassword()", () => {
+      it("calls resetPassword with an email", async () => {
+        const email = "test@example.com";
+        const actionCodeSettings = undefined;
+        const TestComponent = () => {
+          const { resetPassword } = useSession();
+          useEffect(() => {
+            resetPassword(email);
+          }, []);
+          return null;
+        };
+        renderWithAuthReact(<TestComponent />, {});
+        await waitFor(() =>
+          expect(sendPasswordResetEmail).toHaveBeenCalledWith(
+            expect.anything(), // this is the auth object
+            email,
+            actionCodeSettings
+          )
+        );
+      });
+    });
+  });
+  describe("signInWithGoogle()", () => {
+    it("calls signInWithGoogle", async () => {
+      const TestComponent = () => {
+        const { signInWithGoogle } = useSession();
+        useEffect(() => {
+          signInWithGoogle();
+        }, []);
+        return null;
+      };
+
+      renderWithAuthReact(<TestComponent />, {});
+
+      await waitFor(() => {
+        expect(signInWithRedirect).toHaveBeenCalled();
+        expect(getRedirectResult).toHaveBeenCalled();
+      });
+    });
+  });
+  describe("signIn()", () => {
+    it("calls signInWithEmailAndPassword with correct arguments", async () => {
+      const email = "test@example.com";
+      const password = "password";
+      const TestComponent = () => {
+        const { signIn } = useSession();
+        signIn(email, password);
+
+        return null;
+      };
+
+      renderWithAuthReact(<TestComponent />, {});
+
+      await waitFor(() => {
+        expect(signInWithEmailAndPassword).toHaveBeenCalledWith(
+          expect.anything(), // this is the auth object
+          email,
+          password
+        );
+      });
+    });
+    it("handles signInWithEmailAndPassword errors", async () => {
+      // Add a mock implementation that rejects with an error
+      const { signInWithEmailAndPassword } = require("firebase/auth");
+
+      signInWithEmailAndPassword.mockImplementationOnce(() => {
+        return Promise.reject(new Error("Test error"));
+      });
+
+      const email = "test@example.com";
+      const password = "password";
+
+      const mockErrorHandler = jest.fn();
+
+      const TestComponent = () => {
+        const { signIn } = useSession();
+        useEffect(() => {
+          signIn(email, password).catch(mockErrorHandler);
+        }, []);
+        return null;
+      };
+      renderWithAuthReact(<TestComponent />, {});
+      // Wait for the error to be handled
+      await waitFor(() =>
+        expect(mockErrorHandler).toHaveBeenCalledWith(new Error("Test error"))
+      );
+    });
+  });
+  describe("signOut()", () => {
+    it("handles sign out", async () => {
+      function TestComponent() {
+        const { signOut } = useSession();
+        useEffect(() => {
+          signOut();
+        }, []);
+
+        return null;
+      }
+
+      renderWithAuthReact(<TestComponent />, {});
+
+      await waitFor(() => expect(signOut).toHaveBeenCalled());
+    });
+  });
+  describe("signUp()", () => {
+    it("calls signUp with an email and password", async () => {
+      const email = "test@example.com";
+      const password = "password";
+
+      function TestComponent() {
+        const { signUp } = useSession();
+
+        useEffect(() => {
+          signUp(email, password);
+        }, []);
+
+        return null;
+      }
+
+      renderWithAuthReact(<TestComponent />, {});
+
+      await waitFor(() =>
+        expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(
+          expect.anything(),
+          email,
+          password
+        )
+      );
+    });
+    it("handles signUp errors", async () => {
+      // Add a mock implementation that rejects with an error
+      const { createUserWithEmailAndPassword } = require("firebase/auth");
+      createUserWithEmailAndPassword.mockImplementationOnce(() => {
+        return Promise.reject(new Error("Test error"));
+      });
+
+      const email = "test@example.com";
+      const password = "password";
+
+      const mockErrorHandler = jest.fn();
+
+      const TestComponent = () => {
+        const { signUp } = useSession();
+        useEffect(() => {
+          signUp(email, password).catch(mockErrorHandler);
+        }, []);
+        return null;
+      };
+
+      renderWithAuthReact(<TestComponent />, {});
+
+      // Wait for the error to be handled
+      await waitFor(() =>
+        expect(mockErrorHandler).toHaveBeenCalledWith(new Error("Test error"))
+      );
+    });
+  });
+});

@@ -1,0 +1,596 @@
+{
+    "activities": [
+        {
+            "isl": "K\u00f6rfubolti",
+            "name": "Basketball",
+            "wikidata": 5372
+        },
+        {
+            "alt-2": "concerts",
+            "isl": "Lifandi t\u00f3nlist",
+            "alts": [
+                "music festivals",
+                "concerts"
+            ],
+            "alt-1": "music festivals",
+            "name": "Live music",
+            "wikidata": 182832
+        },
+        {
+            "name": "Nights out",
+            "alt-2": "night life",
+            "isl": "N\u00e6turl\u00edf",
+            "alts": [
+                "nightlife",
+                "night life",
+                "going out",
+                "clubs"
+            ],
+            "alt-1": "nightlife",
+            "alt-3": "going out",
+            "wikidata": 1594437
+        },
+        {
+            "name": "Meditation",
+            "wikidata": 108458
+        },
+        {
+            "name": "Eating out",
+            "wikidata": 1778821
+        },
+        {
+            "isl": "Handverksbj\u00f3r",
+            "alts": [
+                "pubs"
+            ],
+            "alt-1": "pubs",
+            "name": "Craft beer",
+            "wikidata": 5487333
+        },
+        {
+            "isl": "V\u00edn",
+            "alts": [
+                "wine tasting"
+            ],
+            "alt-1": "wine tasting",
+            "name": "Wine",
+            "wikidata": 282
+        },
+        {
+            "isl": "Fimleikar",
+            "name": "Gymnastics",
+            "wikidata": 43450
+        },
+        {
+            "isl": "J\u00f3ga",
+            "alts": [
+                "pilates"
+            ],
+            "name": "Yoga",
+            "wikidata": 9350
+        },
+        {
+            "isl": "F\u00f3tbolti",
+            "alts": [
+                "soccer"
+            ],
+            "alt-1": "Soccer",
+            "name": "Football",
+            "wikidata": 2736
+        },
+        {
+            "isl": "G\u00f6ngut\u00farar",
+            "name": "Walking",
+            "wikidata": 6537379
+        },
+        {
+            "isl": "Hlaup",
+            "name": "Running",
+            "wikidata": 105674
+        },
+        {
+            "isl": "B\u00ed\u00f3myndir",
+            "name": "Films",
+            "wikidata": 11424
+        },
+        {
+            "isl": "Krikket",
+            "name": "Cricket",
+            "wikidata": 5375
+        },
+        {
+            "isl": "Hj\u00f3labretti",
+            "name": "Skateboarding",
+            "wikidata": 842284
+        },
+        {
+            "isl": "Lj\u00f3smyndun",
+            "name": "Photography",
+            "wikidata": 11633
+        },
+        {
+            "isl": "B\u00f3kalestur",
+            "alts": [
+                "bookclub",
+                "book"
+            ],
+            "name": "Reading",
+            "wikidata": 8242
+        },
+        {
+            "isl": "S\u00f6ngur",
+            "name": "Singing",
+            "wikidata": 27939
+        },
+        {
+            "isl": "Lj\u00f3\u00f0ager\u00f0",
+            "name": "Poetry",
+            "wikidata": 482
+        },
+        {
+            "alt-2": "standup",
+            "isl": "Uppistand",
+            "alts": [
+                "comedy",
+                "standup"
+            ],
+            "alt-1": "comedy",
+            "name": "Stand-up",
+            "wikidata": 145806
+        },
+        {
+            "isl": "Kar\u00f3k\u00ed",
+            "name": "Karaoke",
+            "wikidata": 229435
+        },
+        {
+            "alt-2": "Brazilian Jiu-Jitsu",
+            "isl": "Jiu-Jitsu",
+            "alts": [
+                "BJJ",
+                "Brazilian Jiu Jitsu",
+                "ju jitsu",
+                "martial arts"
+            ],
+            "alt-1": "BJJ",
+            "name": "Jiu-Jitsu",
+            "wikidata": 163770
+        },
+        {
+            "isl": "Loftslags\u00e1hrif",
+            "name": "Climate change",
+            "wikidata": 125928
+        },
+        {
+            "isl": "Hinseginleiki",
+            "alts": [
+                "LGBT"
+            ],
+            "alt-1": "LGBT",
+            "name": "LGBTQIA+ rights",
+            "wikidata": 17884
+        },
+        {
+            "isl": "Jafn",
+            "alts": [
+                "feminism"
+            ],
+            "alt-1": "Feminism",
+            "name": "Gender studies",
+            "wikidata": 7252
+        },
+        {
+            "isl": "Tennis",
+            "name": "Tennis",
+            "wikidata": 847
+        },
+        {
+            "alt-2": "ping-pong",
+            "isl": "Bor\u00f0tennis",
+            "alts": [
+                "ping-pong",
+                "ping pong",
+                "pingpong"
+            ],
+            "alt-1": "ping pong",
+            "name": "Table Tennis",
+            "wikidata": 3930
+        },
+        {
+            "isl": "Badm\u00ednton",
+            "name": "Badminton",
+            "wikidata": 7291
+        },
+        {
+            "alt-2": "Bouldering",
+            "isl": "Klifur",
+            "alts": [
+                "rock climbing",
+                "bouldering"
+            ],
+            "alt-1": "Rock climbing",
+            "name": "Climbing",
+            "wikidata": 22857
+        },
+        {
+            "alt-2": "broadway",
+            "isl": "Leikh\u00fas",
+            "alts": [
+                "musicals",
+                "broadway"
+            ],
+            "alt-1": "musicals",
+            "name": "Theatre",
+            "wikidata": 11635
+        },
+        {
+            "alt-2": "Skiing",
+            "isl": "Vetrar\u00ed\u00fer\u00f3ttir",
+            "alts": [
+                "snowboarding",
+                "skiiing"
+            ],
+            "alt-1": "Snowboarding",
+            "name": "Winter sports",
+            "wikidata": 204686
+        },
+        {
+            "isl": "\u00der\u00ed\u00feraut",
+            "name": "Triathlon",
+            "wikidata": 10980
+        },
+        {
+            "alt-3": "xbox",
+            "isl": "T\u00f6lvuleikir",
+            "alt-4": "pc gaming",
+            "alt-2": "playstation",
+            "alts": [
+                "gaming",
+                "playstation",
+                "xbox",
+                "pc gaming"
+            ],
+            "alt-1": "gaming",
+            "name": "Video games",
+            "wikidata": 7889
+        },
+        {
+            "name": "Tabletop RPGs",
+            "alt-6": "dungeons and dragons",
+            "alt-5": "role playing",
+            "isl": "Hlutverkaleikir",
+            "alt-4": "table top role playing games",
+            "alt-7": "dungeons & dragons",
+            "alt-2": "D&D",
+            "alts": [
+                "DnD",
+                "D&D",
+                "dandd",
+                "table top role playing games",
+                "role playing",
+                "dungeons and dragons",
+                "dungeons & dragons"
+            ],
+            "alt-1": "DnD",
+            "alt-3": "dandd",
+            "wikidata": 1643932
+        },
+        {
+            "isl": "Bor\u00f0spil",
+            "name": "Board games",
+            "wikidata": 131436
+        },
+        {
+            "isl": "Handbolti",
+            "name": "Handball",
+            "wikidata": 8418
+        },
+        {
+            "isl": "Cosplay",
+            "name": "Cosplay",
+            "wikidata": 142554
+        },
+        {
+            "alt-2": "e sports",
+            "isl": "Raf\u00ed\u00fer\u00f3ttir",
+            "alts": [
+                "e sports",
+                "e-sports",
+                "esports"
+            ],
+            "alt-1": "esports",
+            "name": "E-sports",
+            "wikidata": 300920
+        },
+        {
+            "isl": "Hj\u00f3lrei\u00f0ar",
+            "alts": [
+                "bicycling"
+            ],
+            "alt-1": "bicycling",
+            "name": "Cycling",
+            "wikidata": 53121
+        },
+        {
+            "isl": "Keila",
+            "name": "Bowling",
+            "wikidata": 3177899
+        },
+        {
+            "isl": "P\u00edla",
+            "name": "Darts",
+            "wikidata": 131471
+        },
+        {
+            "isl": "Sj\u00e1lfb\u00e6rni",
+            "alts": [
+                "sustainability"
+            ],
+            "alt-1": "Sustainability",
+            "name": "Upcycling",
+            "wikidata": 219416
+        },
+        {
+            "isl": "Dans",
+            "alts": [
+                "dance"
+            ],
+            "name": "Dancing",
+            "wikidata": 11639
+        },
+        {
+            "isl": "Gar\u00f0yrkja",
+            "name": "Gardening",
+            "wikidata": 124946
+        },
+        {
+            "isl": "Matarger\u00f0",
+            "name": "Cooking",
+            "wikidata": 38695
+        },
+        {
+            "isl": "Bakstur",
+            "name": "Baking",
+            "wikidata": 720398
+        },
+        {
+            "isl": "P\u00f3lit\u00edk",
+            "name": "Politics",
+            "wikidata": 7163
+        },
+        {
+            "isl": "Kvikmyndir",
+            "alts": [
+                "movies"
+            ],
+            "alt-1": "Movies",
+            "name": "Cinema"
+        },
+        {
+            "alt-2": "fitness",
+            "isl": "Kraftlyftingar",
+            "alts": [
+                "working out",
+                "fitness"
+            ],
+            "alt-1": "working out",
+            "name": "Weighlifting",
+            "wikidata": 309252
+        },
+        {
+            "isl": "Blak",
+            "name": "Volleyball",
+            "wikidata": 1734
+        },
+        {
+            "alt-2": "camping",
+            "isl": "Fjallg\u00f6ngur",
+            "alts": [
+                "outdoors",
+                "camping",
+                "backpacking"
+            ],
+            "alt-1": "outdoors",
+            "name": "Hiking",
+            "wikidata": 12014035
+        },
+        {
+            "isl": "Crossfit",
+            "name": "Crossfit",
+            "wikidata": 2072840
+        },
+        {
+            "isl": "T\u00edska",
+            "name": "Fashion",
+            "wikidata": 12684
+        },
+        {
+            "name": "Wrestling",
+            "alt-2": "ECW",
+            "isl": "Gl\u00edma",
+            "alts": [
+                "wwe",
+                "ecw",
+                "wwf"
+            ],
+            "alt-1": "WWE",
+            "alt-3": "WWF",
+            "wikidata": 42486
+        },
+        {
+            "isl": "Frisb\u00edgolf",
+            "alts": [
+                "folf"
+            ],
+            "alt-1": "folf",
+            "name": "Frisbee golf",
+            "wikidata": 876737
+        },
+        {
+            "isl": "Golf",
+            "name": "Golf",
+            "wikidata": 5377
+        },
+        {
+            "isl": "Prj\u00f3na",
+            "name": "Knitting",
+            "wikidata": 193188
+        },
+        {
+            "isl": "Sauma",
+            "alts": [
+                "embroidery"
+            ],
+            "name": "Sewing",
+            "wikidata": 652122
+        },
+        {
+            "isl": "Sn\u00f3ker",
+            "alts": [
+                "snooker"
+            ],
+            "name": "Snooker",
+            "wikidata": 11015
+        },
+        {
+            "name": "Foraging",
+            "alt-2": "wild picking",
+            "isl": "F\u00e6\u00f0u\u00f6flun",
+            "alts": [
+                "mushroom picking",
+                "wild picking",
+                "berry picking"
+            ],
+            "alt-1": "mushroom picking",
+            "alt-3": "berry picking",
+            "wikidata": 2991771
+        },
+        {
+            "isl": "Sund",
+            "name": "Swimming",
+            "wikidata": 6388
+        },
+        {
+            "isl": "Hestrei\u00f0ar",
+            "alts": [
+                "horse riding"
+            ],
+            "alt-1": "horse riding",
+            "name": "Horseback riding",
+            "wikidata": 179226
+        },
+        {
+            "alt-2": "Keramik",
+            "isl": "Leirkerager\u00f0",
+            "alts": [
+                "ceramics",
+                "keramics"
+            ],
+            "alt-1": "Ceramic",
+            "name": "Pottery",
+            "wikidata": 45621
+        },
+        {
+            "name": "Metal Music",
+            "wikidata": 38848
+        },
+        {
+            "alts": [
+                "drawing",
+                "sketching",
+                "painting"
+            ],
+            "name": "Art",
+            "wikidata": 36649
+        },
+        {
+            "alts": [
+                ""
+            ],
+            "name": "Jazz",
+            "wikidata": 8341
+        },
+        {
+            "alts": [
+                "singing"
+            ],
+            "name": "Choir"
+        },
+        {
+            "alts": [
+                "band",
+                "guitar",
+                "drums",
+                "bass",
+                "playing music",
+                "violin"
+            ],
+            "name": "Jamming",
+            "wikidata": 638
+        },
+        {
+            "name": "Writing",
+            "wikidata": 1333743
+        },
+        {
+            "name": "Travelling",
+            "wikidata": 61509
+        },
+        {
+            "alts": [
+                "martial arts"
+            ],
+            "name": "Karate",
+            "wikidata": 11419
+        },
+        {
+            "name": "Archery",
+            "wikidata": 108429
+        },
+        {
+            "alts": [
+                "dance",
+                "dancing"
+            ],
+            "name": "salsa"
+        },
+        {
+            "name": "Brass Bands"
+        },
+        {
+            "alts": [
+                "flowers",
+                "plants"
+            ],
+            "name": "Flower arranging",
+            "wikidata": 637125
+        },
+        {
+            "alts": [],
+            "name": "Music production"
+        },
+        {
+            "name": "Horoscopes",
+            "wikidata": 34362
+        },
+        {
+            "name": "Poker",
+            "wikidata": 81031
+        },
+        {
+            "name": "Chess",
+            "wikidata": 718
+        },
+        {
+            "name": "Bird watching",
+            "wikidata": 685629
+        },
+        {
+            "alts": [
+                "sea swimming"
+            ],
+            "name": "Cold water swimming",
+            "wikidata": 631004
+        }
+    ]
+}

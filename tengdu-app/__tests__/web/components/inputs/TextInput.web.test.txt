@@ -1,0 +1,106 @@
+import React, { useState } from "react";
+import { fireEvent, screen } from "@testing-library/react";
+
+import TextInput from "../../../../components/inputs/TextInput";
+import { renderReact } from "../../../../render";
+
+describe("TextInput", () => {
+  // it("renders the UI as usual", () => {
+  //   const tree = renderSnapshot(
+  //     <TextInput
+  //       label="Test"
+  //       state=""
+  //       setState={() => {}}
+  //     />
+  //   ).toJSON();
+  //   expect(tree).toMatchSnapshot();
+  // });
+  it("renders label correctly", () => {
+    const { getByTestId } = renderReact(
+      <TextInput
+        label="Email"
+        state=""
+        setState={() => {}}
+      />,
+      {}
+    );
+    expect(getByTestId("Email-label")).toHaveTextContent("Email");
+  });
+
+  it("renders error message when error is true and errorMessage prop is provided", () => {
+    const { getByTestId } = renderReact(
+      <TextInput
+        label="Email"
+        state=""
+        setState={() => {}}
+        errorMessage="Invalid email"
+        error={true}
+      />,
+      {}
+    );
+    expect(getByTestId("Email-error-message")).toHaveTextContent(
+      "Invalid email"
+    );
+  });
+
+  it("does not render error message when error is false and errorMessage prop is provided", () => {
+    const { getByTestId, queryByTestId } = renderReact(
+      <TextInput
+        label="Email"
+        state=""
+        setState={() => {}}
+        errorMessage="Invalid email"
+        error={false}
+      />,
+      {}
+    );
+    expect(queryByTestId("Email-error-message")).toBeFalsy();
+  });
+
+  it("does not render an error message when no errorMessage prop", () => {
+    const { queryByTestId } = renderReact(
+      <TextInput
+        label="Email"
+        state=""
+        setState={() => {}}
+      />,
+      {}
+    );
+    expect(queryByTestId("Email-error-message")).toBeFalsy();
+  });
+
+  it("calls setState when text is entered", () => {
+    const setState = jest.fn();
+    const state = "";
+
+    const { getByTestId } = renderReact(
+      <TextInput
+        setState={setState}
+        label="Email"
+        state={state}
+      />,
+      {}
+    );
+    const input = getByTestId("Email-input");
+
+    fireEvent.change(input, { target: { value: "test@example.com" } });
+
+    expect(setState).toHaveBeenCalledWith("test@example.com");
+  });
+
+  it("has the value of the state", () => {
+    const state = "test input";
+
+    const { getByTestId } = renderReact(
+      <TextInput
+        setState={() => {}}
+        label="Email"
+        state={state}
+      />,
+      {}
+    );
+    const input = getByTestId("Email-input");
+
+    expect(input).toHaveValue(state);
+  });
+});

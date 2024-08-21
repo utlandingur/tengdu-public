@@ -1,0 +1,45 @@
+node_modules/
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+.yarn
+.env
+.tamagui
+.firebase*
+
+# macOS
+.DS_Store
+
+yarn-error.log
+
+# Expo
+/.expo/
+/expo-shared/
+
+# iOS
+/ios/Pods/
+/ios/Podfile.lock
+/ios/Podfile
+/ios/*.xcworkspace
+/ios/*.xcodeproj
+
+# Android
+/android/.gradle
+/android/app/build
+/android/app/src/main/assets/shell-app-manifest.json
+/android/app/src/main/assets/shell-app.bundle
+/android/gradlew
+/android/gradlew.bat
+/android/local.properties
+/android/release.keystore
+
+# Google Services files
+./google-services.json
+./GoogleService-Info.plist

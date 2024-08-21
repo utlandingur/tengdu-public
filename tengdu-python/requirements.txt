@@ -1,0 +1,5 @@
+bs4
+firebase_admin
+flask
+numpy
+pywikibot

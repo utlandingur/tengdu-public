@@ -1,0 +1,44 @@
+import "@testing-library/jest-dom";
+
+import React from "react";
+
+import SelectInput from "../../../../components/inputs/SelectInput";
+import { renderReact } from "../../../../render";
+
+describe("SelectInput", () => {
+  let title, defaultValue, inputOne, inputTwo, inputThree, items;
+  const setState = jest.fn();
+
+  beforeEach(() => {
+    [title, defaultValue, inputOne, inputTwo, inputThree] = [
+      "title",
+      "default value",
+      "input 1",
+      "input 2",
+      "input 3"
+    ];
+    items = [{ name: inputOne }, { name: inputTwo }, { name: inputThree }];
+  });
+  it("renders and displays correct inputs and title", () => {
+    const { getByTestId, getByText } = renderReact(
+      <SelectInput
+        items={items}
+        setState={setState}
+        label={title}
+        state={defaultValue}
+      />,
+      {}
+    );
+    // gather elements
+    const label = getByTestId("select-input-title");
+    const firstInput = getByText(inputOne);
+    const secondInput = getByText(inputTwo);
+    const thirdInput = getByText(inputThree);
+
+    // check elements exist
+    expect(label).toHaveTextContent(title);
+    expect(firstInput).toHaveTextContent(inputOne);
+    expect(secondInput).toHaveTextContent(inputTwo);
+    expect(thirdInput).toHaveTextContent(inputThree);
+  });
+});
