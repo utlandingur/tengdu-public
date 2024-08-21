@@ -16,6 +16,16 @@ It is feature complete and ready for release. The app is written in React Native
 - Match overview
 - Safety features (block and report users)
 
+## Video overview
+
+https://github.com/user-attachments/assets/878cf1a6-6d19-4189-977c-9e461a1d60cf
+
+
+https://github.com/user-attachments/assets/8cacf323-a5f2-4ec0-9a9e-5828c8484af2
+
+
+
+
 ## Installation
 To install the app, follow these steps:
 1. Clone the repository
