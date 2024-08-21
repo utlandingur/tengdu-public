@@ -3,7 +3,7 @@
 Public code repository. This is the code for the Tengdu app, a social connection app that allows people to connect with each other and share their experiences.
 
 ## Introduction
-This app was developed by Sesar Herisson and Luke Hening from January to July 2024. It allows people to connect with each other and share their experiences. The app is written to work on both iOS and Android devices.
+This app was developed by Sesar Herisson (backend) and Luke Hening (frontend) from January to July 2024. It allows people to connect with each other and share their experiences. The app is written to work on both iOS and Android devices.
 It is feature complete and ready for release. The app is written in React Native and Expo with Tamagui. It uses Firebase for the backend. It uses StreamChat for messaging.
 
 ## Features
